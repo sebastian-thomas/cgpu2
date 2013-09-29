@@ -1,5 +1,7 @@
 Cgpu2::Application.routes.draw do
   
+  resources :companies
+
   resources :students
 
   mount RailsAdmin::Engine => '/superadmin', :as => 'rails_admin'
