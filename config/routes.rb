@@ -1,5 +1,9 @@
 Cgpu2::Application.routes.draw do
   
+ 
+
+  resources :companyvisits
+
   resources :companies
 
   resources :students

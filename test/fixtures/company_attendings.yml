@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  companyvisit_id: 
+  student_id: 
+
+two:
+  companyvisit_id: 
+  student_id: 

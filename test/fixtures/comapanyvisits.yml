@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company_id: 
+  'on': 2013-09-29
+  description: MyText
+
+two:
+  company_id: 
+  'on': 2013-09-29
+  description: MyText

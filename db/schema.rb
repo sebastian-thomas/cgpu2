@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929090636) do
+ActiveRecord::Schema.define(version: 20130929134426) do
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "contact_person"
+    t.text     "contact_addr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "company_attendings", force: true do |t|
+    t.integer  "companyvisit_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "company_attendings", ["companyvisit_id"], name: "index_company_attendings_on_companyvisit_id"
+  add_index "company_attendings", ["student_id"], name: "index_company_attendings_on_student_id"
+
+  create_table "companyvisits", force: true do |t|
+    t.integer  "company_id"
+    t.date     "on"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "companyvisits", ["company_id"], name: "index_companyvisits_on_company_id"
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"

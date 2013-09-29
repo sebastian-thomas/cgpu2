@@ -7,6 +7,13 @@ class Ability
       can :access, :rails_admin   # grant access to rails_admin
       can :dashboard
       can :manage, :all
+    elsif user.role? :placement
+      can :access, :rails_admin   # grant access to rails_admin
+      can :dashboard
+      can :read , Student
+      can :manage ,Company
+      can :manage ,Companyvisit
+      can :manage ,CompanyAttending
     elsif user.role? :classrep
         can :manage , :classrep
         can :manage, Student ,:batch => user.batch
