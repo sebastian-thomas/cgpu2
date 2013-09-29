@@ -4,5 +4,5 @@ class ClassrepController < ApplicationController
   def index		  
 	  @students = Student.where( batch: current_user.batch, course: current_user.course, dept: current_user.dept)
   end
-  
+
 end

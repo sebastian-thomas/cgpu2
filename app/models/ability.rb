@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     elsif user.role? :classrep
         can :manage , :classrep
+        can :manage, Student ,:batch => user.batch
     elsif user.role? :student
         can :manage, Student ,:email => user.email
     end
