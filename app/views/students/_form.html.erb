@@ -1,0 +1,449 @@
+<%= form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
+  
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :course, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :course, options_for_select(Student::COURSE) , :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dept, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :dept,options_for_select(Student::DEPT), :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :batch, :class => 'control-label' %>
+    <div class="controls">
+       <%= f.select :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :gender, options_for_select(['M','F']), :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :dob ,:start_year => 1980 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fjob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fjob, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mjob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mjob, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :paddr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :paddr, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :taddr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :taddr, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :height, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :height, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :weight, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :weight, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :eye, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :eye, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mobile, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mobile, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :resiph, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :resiph, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emerph, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emerph, :class => 'text_field' %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :regreceipt, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :regreceipt, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :erank, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :erank, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssc_board, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssc_board, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssc_yop, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssc_yop, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssc_aggr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssc_aggr, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hsc_board, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hsc_board, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hsc_yop, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hsc_yop, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hsc_aggr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hsc_aggr, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :d_trade, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :d_trade, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :d_yop, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :d_yop, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :d_board, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :d_board, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :d_aggr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :d_aggr, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug12, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug12, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug5, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug5, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug6, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug6, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug7, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug7, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug8, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug8, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug9, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug9, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug10, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug10, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_cgpa, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_cgpa, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist12, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist12, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist5, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist5, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist6, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist6, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist7, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist7, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist8, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist8, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_hist_total, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_hist_total, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog12, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog12, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog5, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog5, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog6, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog6, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog7, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog7, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_backlog8, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_backlog8, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ug_b_pending, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ug_b_pending, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg1, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg2, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_cgpu, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_cgpu, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_hist1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_hist1, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_hist2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_hist2, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_hist3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_hist3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_hist4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_hist4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_hist_total, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_hist_total, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_backlog1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_backlog1, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_backlog2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_backlog2, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_backlog3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_backlog3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_backlog4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_backlog4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pg_backlog_pending, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pg_backlog_pending, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gap, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :gap, :class => 'text_field' %>
+    </div>
+  </div>
+ 
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                students_path, :class => 'btn' %>
+  </div>
+<% end %>

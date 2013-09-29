@@ -1,0 +1,4 @@
+json.array!(@students) do |student|
+  json.extract! student, :user_id, :name, :course, :dept, :batch, :gender, :dob, :fname, :mname, :fjob, :mjob, :paddr, :taddr, :height, :weight, :eye, :mobile, :resiph, :emerph, :email, :regreceipt, :erank, :ssc_board, :ssc_yop, :ssc_aggr, :hsc_board, :hsc_yop, :hsc_aggr, :d_trade, :d_yop, :d_board, :d_aggr, :ug12, :ug3, :ug4, :ug5, :ug6, :ug7, :ug8, :ug9, :ug10, :ug_cgpa, :ug_hist12, :ug_hist3, :ug_hist4, :ug_hist5, :ug_hist6, :ug_hist7, :ug_hist8, :ug_hist_total, :ug_backlog12, :ug_backlog3, :ug_backlog4, :ug_backlog5, :ug_backlog6, :ug_backlog7, :ug_backlog8, :ug_b_pending, :pg1, :pg2, :pg3, :pg4, :pg_cgpu, :pg_hist1, :pg_hist2, :pg_hist3, :pg_hist4, :pg_hist_total, :pg_backlog1, :pg_backlog2, :pg_backlog3, :pg_backlog4, :pg_backlog_pending, :gap, :verify_status
+  json.url student_url(student, format: :json)
+end

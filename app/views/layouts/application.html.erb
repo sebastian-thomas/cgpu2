@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cgpu2</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class = "container">
+
+	<div class="navbar">
+		  <div class="navbar-inner">
+		    <a class="brand" href="#">CGPU</a>
+		    <ul class="nav">
+		      <li><a href="/">Home</a></li>
+		      
+		      <% if user_signed_in? %>
+		      <li><a href="#"><%= current_user.name %></a></li>
+			  <li><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %></li>
+			<% else %>
+			  <li><%= link_to 'Log In', new_user_session_path %></li>
+			<% end %>
+		    </ul>
+		  </div>
+	</div>
+
+
+ 		<p class="notice"><%= notice %></p>
+       	<p class="alert"><%= alert %></p>
+
+		<%= yield %>
+</div>
+
+
+</body>
+</html>
