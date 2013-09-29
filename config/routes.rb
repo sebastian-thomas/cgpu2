@@ -1,8 +1,11 @@
 Cgpu2::Application.routes.draw do
+  
   resources :students
 
   mount RailsAdmin::Engine => '/superadmin', :as => 'rails_admin'
   root 'home#index'
+  get 'classrep'=>"classrep#index"
+  get "classrep/index"
   get "home/index"
   devise_for :users
   

@@ -1,0 +1,7 @@
+<h1>Students</h1>
+<table class = "table table-stripped">
+   <tr><th>Name</th><th>View</th></tr>
+   <%= @students.each do |student| %>
+      <tr><td><%= student.name %></td><td><%=link_to 'View' , student_path(student) %></td></tr>
+   <% end %>
+</table>
