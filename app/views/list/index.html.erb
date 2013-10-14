@@ -1,0 +1,26 @@
+<h1>List#index</h1>
+<p>Find me in app/views/list/index.html.erb</p>
+
+<%= form_tag("/list/index", method: "get") do %>
+  <%= select "list", :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
+  <%= select "list", :dept , options_for_select(Student::DEPT), :class => 'select_field' %>
+  <%= submit_tag("Find") %>
+<% end %>
+
+<% if @students %>
+
+	<table class="table table-striped" id="dtables">
+	  <thead>
+	  	
+	  		<td>Name</td><td>Department</td><td>CGPA</td>
+	
+	  </thead>
+	  <tbody>
+	  	<% @students.each do |student| %>
+	  	  <tr>
+	  	  	<td><%= student.name %></td><td> <%= student.dept %></td><td> <%= student.ug_cgpa %></td>
+	  	  </tr>
+	  	<% end %>
+	  </tbody>
+	</table>
+<% end %>

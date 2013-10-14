@@ -14,14 +14,51 @@
 		  <div class="navbar-inner">
 		    <a class="brand" href="#">CGPU</a>
 		    <ul class="nav">
-		      <li><a href="/">Home</a></li>
+		      <li><a href="/">Home</a></li>     
 		      
 		      <% if user_signed_in? %>
-		      <li><a href="#"><%= current_user.name %></a></li>
-		      <li><%= link_to 'Details' ,students_path %></li>
-			  <li><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %></li>
+
+				    <% if current_user.role? :superadmin %>
+					  <li><%= link_to 'List' , '/list' %></li>
+					  <li><%= link_to 'Export' , '/export' %></li>
+					  <li><%= link_to 'Admin' , '/superadmin' %></li>
+					<% end %>
+
+					<% if current_user.role? :po %>
+					  <li><%= link_to 'List' , '/list' %></li>
+					  <li><%= link_to 'Export' , '/export' %></li>
+					  <li><%= link_to 'Admin' , '/superadmin' %></li>
+					<% end %>
+
+					<% if current_user.role? :placement %>
+					  <li><%= link_to 'List' , '/list' %></li>
+					  <li><%= link_to 'Export' , '/export' %></li>
+					  <li><%= link_to 'Admin' , '/superadmin' %></li>
+					<% end %>
+
+					<% if current_user.role? :training %>
+					  <li><%= link_to 'List' , '/list' %></li>
+					  <li><%= link_to 'Export' , '/export' %></li>
+					  <li><%= link_to 'Admin' , '/superadmin' %></li>
+					<% end %>
+
+					<% if current_user.role? :student %>
+					  <li><%= link_to 'Details' ,students_path %></li>
+					<% end %>
+
+					<% if current_user.role? :classrep %>
+					  <li><%= link_to 'List' , '/list' %></li>
+					  <li><%= link_to 'Export' , '/export' %></li>
+					  <li><%= link_to 'Classrep' , '/classrep' %></li>
+					<% end %>
+
+
+				    
+			        <li><a href="#"><%= current_user.name %></a></li>
+			      
+				    <li><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete'%></li>
 			<% else %>
-			  <li><%= link_to 'Log In', new_user_session_path %></li>
+			    	<li><%= link_to 'Log In', new_user_session_path %></li>
 			<% end %>
 		    </ul>
 		  </div>

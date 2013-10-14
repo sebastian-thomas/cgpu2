@@ -2,6 +2,12 @@ Cgpu2::Application.routes.draw do
   
  
 
+  get "list" => "list#index"
+  get "list/index"
+
+  get "export" => "list#export"
+  get "list/export"
+  
   resources :companyvisits
 
   resources :companies
