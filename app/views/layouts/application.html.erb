@@ -17,23 +17,23 @@
 		      <li><a href="/">Home</a></li>
 		      
 		      <% if user_signed_in? %>
-		      <li><a href="#"><%= current_user.name %></a></li>
-		      <li><%= link_to 'Details' ,students_path %></li>
-			  <li><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %></li>
-			 <%  if current_user %> <% if current_user.role? :superadmin%>
-                 <li><a href="/superadmin">Admin Panel</a></li> 
-             <% end %>
-             <%  if current_user %> <% if current_user.role? :classrep%>
-                 <li><a href="/classrep">CR Panel</a></li> 
-             <% end %>
-             <%  if current_user %> <% if current_user.role? :advisor%>
-                 <li><a href="/advisor">Advisor Panel</a></li> 
-             <% end %>
-             <%  if current_user %> <% if current_user.role? :po%>
-                 <li><a href="/po">PO Panel</a></li> 
-             <% end %>
-             
-            <% end %>
+			      <li><a href="#"><%= current_user.name %></a></li>
+			      <li><%= link_to 'Details' ,students_path %></li>
+				  <li><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %></li>
+					 <%  if current_user %> 
+						 <% if current_user.role? :superadmin%>
+			                 <li><a href="/superadmin">Admin Panel</a></li> 
+			             <% end %>
+			             <% if current_user.role? :classrep%>
+			                 <li><a href="/classrep">CR Panel</a></li> 
+			             <% end %>
+			             <% if current_user.role? :advisor%>
+			                 <li><a href="/advisor">Advisor Panel</a></li> 
+			             <% end %>
+			             <% if current_user.role? :po%>
+			                 <li><a href="/po">PO Panel</a></li> 
+			             <% end %>
+			       <% end %>
 			<% else %>
 			  <li><%= link_to 'Log In', new_user_session_path %></li>
 			<% end %>

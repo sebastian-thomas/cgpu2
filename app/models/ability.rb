@@ -2,14 +2,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    @user ||= User.new
+    user ||= User.new
     if user.role? :superadmin      
       can :access, :rails_admin   # grant access to rails_admin
       can :dashboard
       can :manage, :all
     elsif user.role? :classrep
         can :manage , :classrep
-        can :manage, Student ,:batch => user.batch
+        can :manage, Student 
     elsif user.role? :student
         can :manage, Student ,:email => user.email
     end
