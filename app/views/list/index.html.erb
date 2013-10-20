@@ -8,19 +8,28 @@
 <% end %>
 
 <% if @students %>
-
+<%= form_tag("/list/export.xls", method: "post") do %>
 	<table class="table table-striped" id="dtables">
 	  <thead>
 	  	
-	  		<td>Name</td><td>Department</td><td>CGPA</td>
+	  		<td>Select</td><td>Name</td><td>Department</td><td>CGPA</td>
 	
 	  </thead>
 	  <tbody>
 	  	<% @students.each do |student| %>
-	  	  <tr>
-	  	  	<td><%= student.name %></td><td> <%= student.dept %></td><td> <%= student.ug_cgpa %></td>
+	  	  <% if student.adv_approved %>
+		  	  <tr >
+		  	<% elsif %>
+		  	  <tr class = "error">
+	  	<% end %>
+	  	    <td><%= check_box_tag 'student_ids[]', student.id %></td>
+	  	  	<td><%= link_to student.name, url_for(student), :target => '_blank' %></td>
+	  	  	<td> <%= student.dept %></td>
+	  	  	<td> <%= student.ug_cgpa %></td>
 	  	  </tr>
 	  	<% end %>
 	  </tbody>
 	</table>
+ <%= submit_tag("Export Selected") %>
+ <% end %>
 <% end %>

@@ -1,12 +1,14 @@
 Cgpu2::Application.routes.draw do
   
  
-
+  get "advisor" => "advisor#index"
+  get "advisor/index"
   get "list" => "list#index"
   get "list/index"
 
-  get "export" => "list#export"
-  get "list/export"
+  post "export" => "list#export"
+  post "list/export"
+  post "advisor/approve"
   
   resources :companyvisits
 

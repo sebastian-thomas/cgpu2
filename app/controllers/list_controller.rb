@@ -11,8 +11,9 @@ class ListController < ApplicationController
   end
 
   def export
-  	if params[:list]
-       @students = Student.where(:batch => params[:list][:batch] , :dept => params[:list][:dept])
+  	if params[:student_ids]
+       #@students = Student.where(:batch => params[:list][:batch] , :dept => params[:list][:dept])
+       @students = Student.find(params[:student_ids])
   	end
   	respond_to do |format|
 	    format.html

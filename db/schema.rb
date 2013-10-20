@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929134426) do
+ActiveRecord::Schema.define(version: 20131020052740) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20130929134426) do
     t.integer  "verify_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "adv_approved",       default: false
   end
 
   add_index "students", ["user_id"], name: "index_students_on_user_id"

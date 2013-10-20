@@ -14,6 +14,9 @@ class Ability
       can :manage ,Company
       can :manage ,Companyvisit
       can :manage ,CompanyAttending
+    elsif user.role? :advisor
+      can :manage , :advisor
+      can :manage, Student      
     elsif user.role? :classrep
         can :manage , :classrep
         can :manage, Student ,:batch => user.batch
