@@ -1,0 +1,3 @@
+https://docs.djangoproject.com/en/dev/ref/contrib/gis/tutorial/
+
+http://www.phase2technology.com/blog/authentication-permissions-and-roles-in-rails-with-devise-cancan-and-role-model/

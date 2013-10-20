@@ -1,2 +1,18 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<div class = "container">
+
+<% if @companies %>
+   <% @companies.each do |c| %>
+   <div class = "container">
+     <div><h3><%= c.company.name %></h3></div>
+   	 <div>On : <%= c.on %></div>
+   	 <div> Details <p><%= c.description %></p></div>
+   	 <div> Job Notification Form : <%= link_to "Download" , c.jnf.url %> </div>
+   </div>
+   <% end %>
+   <%= will_paginate @companies  %>
+<% end %>
+
+</div>
