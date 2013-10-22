@@ -8,7 +8,8 @@ class StudentsController < ApplicationController
     if current_user.role? :student
       u = Student.where(:email => current_user.email)
       if u.exists?
-        @students = u
+        @students  = u
+        redirect_to u.first
       else
         redirect_to new_student_path
       end
