@@ -1,5 +1,6 @@
-<%= form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
-  
+<%= form_for @student, :html => { :class => 'form-horizontal', :id =>"step", :multipart => true } do |f| %>
+  <fieldset title="Basic Info">
+  <legend></legend>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -44,59 +45,72 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :fname, :class => 'control-label' %>
+    <%= f.label :picture, :class => 'control-label' %>
+    <div class="controls">
+       <%= image_tag(@student.picture_url) if @student.picture? %>
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+</fieldset>
+<fieldset title="Additional Info">
+  <legend></legend>
+  <div class="control-group">
+    <%= f.label "Father's Name", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :fname, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :mname, :class => 'control-label' %>
+    <%= f.label "Mother's Name", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :mname, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :fjob, :class => 'control-label' %>
+    <%= f.label "Father's Job", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :fjob, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :mjob, :class => 'control-label' %>
+    <%= f.label "Mothers's Job", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :mjob, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :paddr, :class => 'control-label' %>
+    <%= f.label "Permanent Address", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :paddr, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :taddr, :class => 'control-label' %>
+    <%= f.label "Temporary Address", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :taddr, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :height, :class => 'control-label' %>
+    <%= f.label "Height", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :height, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :weight, :class => 'control-label' %>
+    <%= f.label "Weight", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :weight, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :eye, :class => 'control-label' %>
+    <%= f.label "Eye power", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :eye, :class => 'text_field' %>
     </div>
   </div>
+</fieldset>
+<fieldset title="Contact Info">
+  <legend></legend>
   <div class="control-group">
     <%= f.label :mobile, :class => 'control-label' %>
     <div class="controls">
@@ -104,347 +118,379 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :resiph, :class => 'control-label' %>
+    <%= f.label "Residence", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :resiph, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :emerph, :class => 'control-label' %>
+    <%= f.label "Emergency Contact", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :emerph, :class => 'text_field' %>
     </div>
   </div>
   
+
+</fieldset>
+<fieldset title="School Details">
+  <legend></legend>
+  
+
+  <h3>Class X details</h3><hr>
   <div class="control-group">
-    <%= f.label :regreceipt, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :regreceipt, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :erank, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :erank, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssc_board, :class => 'control-label' %>
+    <%= f.label "Board", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ssc_board, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ssc_yop, :class => 'control-label' %>
+    <%= f.label "Year of passing", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ssc_yop, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ssc_aggr, :class => 'control-label' %>
+    <%= f.label "Aggregate Percentage", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ssc_aggr, :class => 'text_field' %>
     </div>
   </div>
+  <h3>Class XII details</h3><hr>
   <div class="control-group">
-    <%= f.label :hsc_board, :class => 'control-label' %>
+    <%= f.label "Board", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :hsc_board, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :hsc_yop, :class => 'control-label' %>
+    <%= f.label "Year of passing", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :hsc_yop, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :hsc_aggr, :class => 'control-label' %>
+    <%= f.label "Aggregate Percentage", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :hsc_aggr, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :d_trade, :class => 'control-label' %>
+    <%= f.label "Entrance Rank", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :erank, :class => 'text_field' %>
+    </div>
+  </div>
+
+  </fieldset>
+
+  <fieldset title="Diploma Details">
+  <legend></legend>
+  <div class="control-group">
+    <%= f.label "Trade", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :d_trade, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :d_yop, :class => 'control-label' %>
+    <%= f.label "Year of passing", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :d_yop, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :d_board, :class => 'control-label' %>
+    <%= f.label "Board", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :d_board, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :d_aggr, :class => 'control-label' %>
+    <%= f.label "Aggregate Percentage", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :d_aggr, :class => 'text_field' %>
     </div>
   </div>
+</fieldset>
+
+<fieldset title="UG Details">
+  <legend></legend>
   <div class="control-group">
-    <%= f.label :ug12, :class => 'control-label' %>
+
+  <h5>Enter your GPA</h5>
+    <%= f.label "Sem I & II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug12, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug5, :class => 'control-label' %>
+    <%= f.label "Sem V", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug5, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug6, :class => 'control-label' %>
+    <%= f.label "Sem VI", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug6, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug7, :class => 'control-label' %>
+    <%= f.label "Sem VII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug7, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug8, :class => 'control-label' %>
+    <%= f.label "Sem VIII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug8, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :ug9, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ug9, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ug10, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ug10, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ug_cgpa, :class => 'control-label' %>
+    <%= f.label "CGPA", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_cgpa, :class => 'text_field' %>
     </div>
   </div>
+
+  <h5>Backlog History</h5>
   <div class="control-group">
-    <%= f.label :ug_hist12, :class => 'control-label' %>
+    <%= f.label "Sem I & II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist12, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist5, :class => 'control-label' %>
+    <%= f.label "Sem V", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist5, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist6, :class => 'control-label' %>
+    <%= f.label "Sem VI", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist6, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist7, :class => 'control-label' %>
+    <%= f.label "Sem VII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist7, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist8, :class => 'control-label' %>
+    <%= f.label "Sem VIII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist8, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_hist_total, :class => 'control-label' %>
+    <%= f.label "Total", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_hist_total, :class => 'text_field' %>
     </div>
   </div>
+  <h5>Current Backlogs</h5>
   <div class="control-group">
-    <%= f.label :ug_backlog12, :class => 'control-label' %>
+    <%= f.label "Sem I & II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog12, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog5, :class => 'control-label' %>
+    <%= f.label "Sem V", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog5, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog6, :class => 'control-label' %>
+    <%= f.label "Sem VI", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog6, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog7, :class => 'control-label' %>
+    <%= f.label "Sem VII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog7, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_backlog8, :class => 'control-label' %>
+    <%= f.label "Sem VIII", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_backlog8, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :ug_b_pending, :class => 'control-label' %>
+    <%= f.label "Total Pending", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ug_b_pending, :class => 'text_field' %>
     </div>
   </div>
+</fieldset>
+
+<fieldset title="PG Details">
+  <legend></legend>
+  <h5>GPA</h5>
   <div class="control-group">
-    <%= f.label :pg1, :class => 'control-label' %>
+    <%= f.label "Sem I", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg1, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg2, :class => 'control-label' %>
+    <%= f.label "Sem II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg2, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_cgpu, :class => 'control-label' %>
+    <%= f.label "CGPA", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_cgpu, :class => 'text_field' %>
     </div>
   </div>
+  <h5>Backlog History</h5>
   <div class="control-group">
-    <%= f.label :pg_hist1, :class => 'control-label' %>
+    <%= f.label "Sem I", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_hist1, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_hist2, :class => 'control-label' %>
+    <%= f.label "Sem II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_hist2, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_hist3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_hist3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_hist4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_hist4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_hist_total, :class => 'control-label' %>
+    <%= f.label "Total", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_hist_total, :class => 'text_field' %>
     </div>
   </div>
+  <h5>Backlog Pending</h5>
   <div class="control-group">
-    <%= f.label :pg_backlog1, :class => 'control-label' %>
+    <%= f.label "Sem I", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_backlog1, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_backlog2, :class => 'control-label' %>
+    <%= f.label "Sem II", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_backlog2, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_backlog3, :class => 'control-label' %>
+    <%= f.label "Sem III", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_backlog3, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_backlog4, :class => 'control-label' %>
+    <%= f.label "Sem IV", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_backlog4, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :pg_backlog_pending, :class => 'control-label' %>
+    <%= f.label "Total", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pg_backlog_pending, :class => 'text_field' %>
     </div>
   </div>
+</fieldset>
+
+<fieldset title="Finally">
+  <legend></legend>
   <div class="control-group">
-    <%= f.label :gap, :class => 'control-label' %>
+    <%= f.label "Education gap details", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :gap, :class => 'text_field' %>
     </div>
   </div>
  
+   <div class="control-group">
+    <%= f.label "Placement registration receipt no.", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :regreceipt, :class => 'text_field' %>
+    </div>
+  </div> 
+
+  <div class="control-group">
+    <%= f.label :resume, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :resume %>
+    </div>
+  </div>
+ 
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-primary finish' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 students_path, :class => 'btn' %>
   </div>
+  </fieldset>
 <% end %>

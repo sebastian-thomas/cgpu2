@@ -1,5 +1,7 @@
 class Student < ActiveRecord::Base
   belongs_to :user
+  mount_uploader :picture, PictureUploader
+  mount_uploader :resume, ResumeUploader
   #before_save :adv_modify
 
     COURSE = ['B.Tech','M.Tech','B.Arch','MCA']
