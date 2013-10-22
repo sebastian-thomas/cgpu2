@@ -1,7 +1,15 @@
 class ListController < ApplicationController
   def index
   	if params[:list]
-       @students = Student.where(:batch => params[:list][:batch] , :dept => params[:list][:dept])
+      if params[:list][:dept] == "NA"
+         students = Student.where(:batch => params[:list][:batch])
+      else
+        students = Student.where(:batch => params[:list][:batch] , :dept => params[:list][:dept])
+      end
+
+      if params[:cgpa]
+        @students = students.where('ug_cgpa > ?', params[:cgpa])
+      end
   	end
   	respond_to do |format|
 	    format.html

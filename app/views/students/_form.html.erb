@@ -39,7 +39,8 @@
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
+      <%= f.hidden_field :email, :value => current_user.email %>
+      <%=  current_user.email %>
     </div>
   </div>
   <div class="control-group">

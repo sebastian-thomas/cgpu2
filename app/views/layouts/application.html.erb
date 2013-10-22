@@ -19,32 +19,27 @@
 		      <% if user_signed_in? %>
 
 				    <% if current_user.role? :superadmin %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Admin' , '/superadmin' %></li>
 					<% end %>
 
 					<% if current_user.role? :po %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Admin' , '/superadmin' %></li>
 					<% end %>
 
 					<% if current_user.role? :placement %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Admin' , '/superadmin' %></li>
 					<% end %>
 
 					<% if current_user.role? :training %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Admin' , '/superadmin' %></li>
 					<% end %>
 
 					<% if current_user.role? :advisor %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Advisor' , '/advisor' %></li>
 					<% end %>
 
@@ -53,8 +48,7 @@
 					<% end %>
 
 					<% if current_user.role? :classrep %>
-					  <li><%= link_to 'List' , '/list' %></li>
-					  
+					  <li><%= link_to 'List' , '/list' %></li>					  
 					  <li><%= link_to 'Classrep' , '/classrep' %></li>
 					<% end %>
 

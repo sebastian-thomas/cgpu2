@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020080917) do
+ActiveRecord::Schema.define(version: 20131020122133) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20131020080917) do
 
   add_index "companyvisits", ["company_id"], name: "index_companyvisits_on_company_id"
 
+  create_table "placements", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "placements", ["company_id"], name: "index_placements_on_company_id"
+  add_index "placements", ["student_id"], name: "index_placements_on_student_id"
+
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
     t.string   "username"
@@ -66,6 +76,16 @@ ActiveRecord::Schema.define(version: 20131020080917) do
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  create_table "student_trainings", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "training_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_trainings", ["student_id"], name: "index_student_trainings_on_student_id"
+  add_index "student_trainings", ["training_id"], name: "index_student_trainings_on_training_id"
 
   create_table "students", force: true do |t|
     t.integer  "user_id"
@@ -149,6 +169,15 @@ ActiveRecord::Schema.define(version: 20131020080917) do
   end
 
   add_index "students", ["user_id"], name: "index_students_on_user_id"
+
+  create_table "trainings", force: true do |t|
+    t.string   "conducted_by"
+    t.date     "on"
+    t.integer  "no_of_days"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -1,15 +1,17 @@
 <h1>List#index</h1>
 <p>Find me in app/views/list/index.html.erb</p>
 
-<%= form_tag("/list/index", method: "get") do %>
+<%= form_tag("/list/index", method: "get", :class => "form-inline") do %>
   <%= select "list", :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
-  <%= select "list", :dept , options_for_select(Student::DEPT), :class => 'select_field' %>
-  <%= submit_tag("Find") %>
+  <%= select "list", :dept , options_for_select(User::DEPT), :class => 'select_field' %>
+  <%= label_tag(:cgpa, "Cgpa above:") %>
+  <%= text_field_tag(:cgpa, "0") %>
+  <%= submit_tag("Find", :class =>"btn") %>
 <% end %>
 
 <% if @students %>
 <%= form_tag("/list/export.xls", method: "post") do %>
-	<table class="table table-striped" id="dtables">
+	<table class="table" id="dtables">
 	  <thead>
 	  	
 	  		<td>Select</td><td>Name</td><td>Department</td><td>CGPA</td>

@@ -14,6 +14,12 @@ class Ability
       can :manage ,Company
       can :manage ,Companyvisit
       can :manage ,CompanyAttending
+    elsif user.role? :training
+      can :access, :rails_admin   # grant access to rails_admin
+      can :dashboard
+      can :read , :all
+      can :manage , Training
+      can :manage , StudentTraining
     elsif user.role? :advisor
       can :manage , :advisor
       can :manage, Student      
