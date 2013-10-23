@@ -1,33 +1,45 @@
-<h1>List#index</h1>
-<p>Find me in app/views/list/index.html.erb</p>
 
+<p>Please choose the corresponding batch and branch</p>
+<br>
+<div class = "container">
+<hr>
+<div class = "container">
 <%= form_tag("/list/index", method: "get", :class => "form-inline") do %>
   <%= select "list", :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
   <%= select "list", :dept , options_for_select(User::DEPT), :class => 'select_field' %>
   <%= label_tag(:cgpa, "Cgpa above:") %>
   <%= text_field_tag(:cgpa, "0") %>
+  <%= check_box_tag 'avoidPlaced', 'yes' %> Avoid placed
   <%= submit_tag("Find", :class =>"btn") %>
 <% end %>
-
+</div>
+<hr>
 <% if @students %>
 <%= form_tag("/list/export.xls", method: "post") do %>
 	<table class="table" id="dtables">
 	  <thead>
 	  	
-	  		<td>Select</td><td>Name</td><td>Department</td><td>CGPA</td>
+	  		<td>Select</td><td>Name</td><td>Department</td><td>CGPA</td><td>Placement</td>
 	
 	  </thead>
 	  <tbody>
 	  	<% @students.each do |student| %>
 	  	  <% if student.adv_approved %>
 		  	  <tr >
+		  	  <td><%= check_box_tag 'student_ids[]', student.id %></td>
 		  	<% elsif %>
 		  	  <tr class = "error">
+		  	  <td><%= check_box_tag 'student_ids[]', student.id, false, disabled: true %></td>
 	  	<% end %>
-	  	    <td><%= check_box_tag 'student_ids[]', student.id %></td>
+	  	    
 	  	  	<td><%= link_to student.name, url_for(student), :target => '_blank' %></td>
 	  	  	<td> <%= student.dept %></td>
 	  	  	<td> <%= student.ug_cgpa %></td>
+            <% if student.is_placed %>
+             <td><i class="icon-ok-sign"></i></td>
+            <% else %>
+              <td><i class=" icon-ban-circle"></i></td>
+            <% end %>
 	  	  </tr>
 	  	<% end %>
 	  </tbody>
@@ -35,3 +47,4 @@
  <%= submit_tag("Export Selected") %>
  <% end %>
 <% end %>
+</div>

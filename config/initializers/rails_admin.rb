@@ -16,6 +16,10 @@ RailsAdmin.config do |config|
 
   config.authorize_with :cancan
 
+  config.navigation_static_links = {
+  'List' => '/list'
+  }
+
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
 

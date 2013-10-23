@@ -11,6 +11,11 @@ class ListController < ApplicationController
       if params[:cgpa]
         @students = students.where('ug_cgpa > ?', params[:cgpa])
       end
+      
+      if params[:avoidPlaced] == "yes"
+        @students = @students.where(:is_placed => false)
+      end
+
   	end
   	respond_to do |format|
 	    format.html
