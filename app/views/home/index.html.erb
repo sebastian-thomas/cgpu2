@@ -1,18 +1,22 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Placement Drive Details</h1>
 
+<div class="jumbotron">
 <div class = "container">
 
 <% if @companies %>
    <% @companies.each do |c| %>
+   <fieldset>
+   <legend><%= c.company.name %><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= c.on %></small></legend>
    <div class = "container">
-     <div><h3><%= c.company.name %></h3></div>
-   	 <div>On : <%= c.on %></div>
-   	 <div> Details <p><%= c.description %></p></div>
-   	 <div> Job Notification Form : <%= link_to "Download" , c.jnf.url %> </div>
+      <div> Job Notification Form : <%= link_to "Download" , c.jnf.url %> </div>
+   	 <div><p><%= c.description %></p></div>
+   	
    </div>
+   </fieldset>
+   <br><br>
    <% end %>
    <%= will_paginate @companies  %>
 <% end %>
 
+</div>
 </div>

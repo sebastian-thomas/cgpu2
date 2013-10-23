@@ -1,4 +1,5 @@
 class ListController < ApplicationController
+  before_filter :authenticate_user!
   def index
   	if params[:list]
       if params[:list][:dept] == "NA"
