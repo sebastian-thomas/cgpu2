@@ -45,6 +45,8 @@ gem 'wicked'
 
 gem 'carrierwave'
 
+gem 'googlecharts'
+
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 group :development do

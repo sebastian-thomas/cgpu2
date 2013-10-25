@@ -1,6 +1,8 @@
 Cgpu2::Application.routes.draw do
   
  
+  get "statitics" => "statitics#index"
+  get "statitics/index"
   get "advisor" => "advisor#index"
   get "advisor/index"
   get "list" => "list#index"
