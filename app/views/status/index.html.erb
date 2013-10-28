@@ -1,0 +1,43 @@
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<h4>Placement Statitics of batch <%= @batch %></h4>
+<hr>
+<div class = "container">
+<%= form_tag("/status", method: "get", :class => "form-inline") do %>
+  <%= select "list", :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
+  <%= submit_tag("Find", :class =>"btn") %>
+<% end %>
+</div>
+<hr>
+
+<% @dataP.each do |dept , d | %>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Company', 'Number Placed'],
+
+          <% d.each do |c_name, c_num| %>
+            ['<%= c_name %>', <%= c_num %>],
+          <% end %>
+        ]);
+
+        var options = {
+          title: '<%= dept %>'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('<%=dept%>'));
+        chart.draw(data, options);
+      }
+    </script>
+
+<% end %> 
+
+
+<% @dataP.each do |dept , d | %>
+       <div id="<%= dept %>" style="width: 900px; height: 500px;"></div><hr>
+<% end %>   
+

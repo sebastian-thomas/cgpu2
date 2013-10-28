@@ -3,6 +3,10 @@ Cgpu2::Application.routes.draw do
  
   get "advisor" => "advisor#index"
   get "advisor/index"
+
+  get "status" => "status#index"
+  get "status/index"
+
   get "list" => "list#index"
   get "list/index"
 

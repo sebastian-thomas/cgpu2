@@ -1,5 +1,8 @@
 class Student < ActiveRecord::Base
   belongs_to :user
+  has_many :placements
+  has_many :companys , through: :placements
+
   mount_uploader :picture, PictureUploader
   mount_uploader :resume, ResumeUploader
 

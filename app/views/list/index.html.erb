@@ -35,7 +35,7 @@
 	  	  	<td><%= link_to student.name, url_for(student), :target => '_blank' %></td>
 	  	  	<td> <%= student.dept %></td>
 	  	  	<td> <%= student.ug_cgpa %></td>
-            <% if student.is_placed %>
+            <% if student.companys.exists? %>
              <td><i class="icon-ok-sign"></i></td>
             <% else %>
               <td><i class=" icon-ban-circle"></i></td>
