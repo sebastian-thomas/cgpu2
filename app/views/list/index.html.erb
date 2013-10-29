@@ -19,7 +19,7 @@
 	<table class="table" id="dtables">
 	  <thead>
 	  	
-	  		<td>Select</td><td>Name</td><td>Department</td><td>CGPA</td><td>Placement</td>
+	  		<td><button type="button" id="check_all">Select All</button></td><td>Name</td><td>Department</td><td>CGPA</td><td>Placement</td>
 	
 	  </thead>
 	  <tbody>
@@ -48,3 +48,6 @@
  <% end %>
 <% end %>
 </div>
+<script type='text/javascript'>
+    $('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
+</script>

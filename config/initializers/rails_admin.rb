@@ -17,7 +17,8 @@ RailsAdmin.config do |config|
   config.authorize_with :cancan
 
   config.navigation_static_links = {
-  'List' => '/list'
+  'List' => '/list',
+  'Status' => '/status'
   }
 
   # If you want to track changes on your models:
