@@ -14,16 +14,11 @@ Cgpu2::Application.routes.draw do
   post "list/export"
   post "advisor/approve"
   
-  resources :companyvisits
-
-  resources :companies
 
   resources :students
 
   mount RailsAdmin::Engine => '/superadmin', :as => 'rails_admin'
   root 'home#index'
-  get 'classrep'=>"classrep#index"
-  get "classrep/index"
   get "home/index"
   devise_for :users
   
