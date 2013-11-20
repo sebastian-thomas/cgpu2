@@ -21,7 +21,7 @@
    <tr><td><strong>Gender:</strong></td><td><%= @student.gender %></td></tr>
    <tr><td><strong>Date of Birth:</strong></td><td><%= @student.dob %></td></tr>
    <tr><td><strong>Email:</strong></td><td><%= @student.email %></td></tr>
-   <tr><td><strong>Picture:</strong></td><td><%= image_tag(@student.picture_url) if @student.picture? %></td></tr>
+   <tr><td><strong>Picture:</strong></td><td><%= image_tag(@student.picture_url,size: "100x100") if @student.picture? %></td></tr>
    <tr><td><strong>Resume:</strong></td><td><%= link_to "download" , @student.resume_url %></td></tr>
 </table>
 </fieldset>

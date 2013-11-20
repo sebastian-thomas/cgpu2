@@ -3,7 +3,7 @@ class AdvisorController < ApplicationController
 
   def index
   	if params[:listadv]
-       @students = Student.where(:batch => params[:listadv][:batch] , :dept => params[:listadv][:dept])
+       @students = Student.where(:batch => params[:listadv][:batch] , :dept => current_user.dept)
   	end
   end
 

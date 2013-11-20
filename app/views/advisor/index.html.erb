@@ -1,9 +1,7 @@
-<h1>Advisor#index</h1>
-<p>Find me in app/views/advisor/index.html.erb</p>
+<h3>Please select the batch</h3>
 
 <%= form_tag("/advisor/index", method: "get") do %>
   <%= select "listadv", :batch, options_for_select(Student::BATCH), :class => 'select_field' %>
-  <%= select "listadv", :dept , options_for_select(Student::DEPT), :class => 'select_field' %>
   <%= submit_tag("Find") %>
 <% end %>
 
