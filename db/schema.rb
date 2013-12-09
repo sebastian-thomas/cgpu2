@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023140536) do
+ActiveRecord::Schema.define(version: 20131209084014) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20131023140536) do
     t.datetime "updated_at"
   end
 
+  add_index "company_attendings", ["companyvisit_id", "student_id"], name: "index_company_attendings_on_companyvisit_id_and_student_id", unique: true
   add_index "company_attendings", ["companyvisit_id"], name: "index_company_attendings_on_companyvisit_id"
   add_index "company_attendings", ["student_id"], name: "index_company_attendings_on_student_id"
 

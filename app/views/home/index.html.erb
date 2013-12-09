@@ -6,7 +6,29 @@
 <% if @companies %>
    <% @companies.each do |c| %>
    <fieldset>
-   <legend><%= c.company.name %><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= c.on %></small></legend>
+   <legend>
+         <%= c.company.name %><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= c.on %></small>
+         <% f = 0 %>
+         <% if @sitting %>
+            <% @sitting.each do |sit| %>
+               <% if sit.companyvisit_id == c.id %>
+                  <% f = 1 %>
+               <% end %>
+            <% end %>
+         <% end %>
+         <% if f == 1 %>
+            <div class = "align-right"><small>You have applied for this drive</small></div>
+         <% else %>
+            <span id = 'attend<%=c.id %>' class = "align-right">
+               <% if current_user.role? :student %>
+                    <%= form_tag('/home/attend',method: "post") do %>
+                        <%= hidden_field_tag 'visitid', c.id %>
+                        <%= submit_tag "Appy for Drive" %>
+                    <% end %>
+               <% end %>
+            </span>
+         <% end %>
+   </legend>
    <div class = "container">
       <div> Job Notification Form : <%= link_to "Download" , c.jnf.url %> </div>
    	 <div><p><%= c.description %></p></div>

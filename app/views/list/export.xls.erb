@@ -16,6 +16,7 @@
     </tr>
   </thead>
   <tbody>
+  <% if @students %>
     <% @students.each do |student| %>
       <tr>
         <td><%= student.id %></td>
@@ -31,5 +32,6 @@
          <td><%= student.pg_cgpu %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>

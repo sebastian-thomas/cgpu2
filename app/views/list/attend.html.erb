@@ -1,0 +1,54 @@
+<h3><p>Please choose the placement Drive</p></h3>
+<div class = "container">
+<% if @companyvisits.any? %>
+	<%= form_tag("/list/attend", method: "get", :class => "form-inline") do %>
+	  <select name="cvisit">
+	  	 <% @companyvisits.each do |v| %>
+	  	   <option value="<%=v.id%>"><%= v.company.name %> on <%= v.on %></option>
+	  	 <% end %>
+	  </select>
+	  <%= submit_tag("Find", :class =>"btn") %>
+	<% end %>
+<% else %>
+   <p>No company visit in db</p>
+<% end %>
+
+<% if @students %>
+<%= form_tag("/list/export.xls", method: "post") do %>
+	<table class="table" id="dtables">
+	  <thead>
+	  	
+	  		<td><button type="button" id="check_all">Select All</button></td><td>Name</td><td>Department</td><td>CGPA</td><td>Placement</td>
+	
+	  </thead>
+	  <tbody>
+	  	<% @students.each do |student| %>
+	  	  <% if student.adv_approved %>
+		  	  <tr >
+		  	  <td><%= check_box_tag 'student_ids[]', student.id %></td>
+		  	<% elsif %>
+		  	  <tr class = "error">
+		  	  <td><%= check_box_tag 'student_ids[]', student.id, false, disabled: true %></td>
+	  	<% end %>
+	  	    
+	  	  	<td><%= link_to student.name, url_for(student), :target => '_blank' %></td>
+	  	  	<td> <%= student.dept %></td>
+	  	  	<td> <%= student.ug_cgpa %></td>
+            <% if student.companys.exists? %>
+             <td><i class="icon-ok-sign"></i></td>
+            <% else %>
+              <td><i class=" icon-ban-circle"></i></td>
+            <% end %>
+	  	  </tr>
+	  	<% end %>
+	  </tbody>
+	</table>
+ <%= submit_tag("Export Selected") %>
+ <% end %>
+<% end %>
+</div>
+<script type='text/javascript'>
+    $('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
+</script>
+
+</div>

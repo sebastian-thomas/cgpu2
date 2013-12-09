@@ -9,6 +9,7 @@ Cgpu2::Application.routes.draw do
 
   get "list" => "list#index"
   get "list/index"
+  get "list/attend"
 
   post "export" => "list#export"
   post "list/export"
@@ -20,6 +21,8 @@ Cgpu2::Application.routes.draw do
   mount RailsAdmin::Engine => '/superadmin', :as => 'rails_admin'
   root 'home#index'
   get "home/index"
+
+  post "home/attend"
   devise_for :users
   
   # The priority is based upon order of creation: first created -> highest priority.

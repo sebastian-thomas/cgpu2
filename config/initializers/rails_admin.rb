@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ['CompanyAttending']
+  #config.excluded_models = ['CompanyAttending']
 
   # Include specific models (exclude the others):
   # config.included_models = ['User']
@@ -59,6 +59,10 @@ RailsAdmin.config do |config|
 
   config. model 'Training' do
     object_label_method :conducted_by
+  end
+
+  config. model 'Companyvisits' do
+    object_label_method :company
   end
 
   ###  User  ###

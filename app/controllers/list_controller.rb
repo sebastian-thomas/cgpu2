@@ -24,6 +24,14 @@ class ListController < ApplicationController
     end
   end
 
+  def attend
+    @companyvisits = Companyvisit.all(:order => "created_at DESC")
+    if params[:cvisit]
+      @cv = CompanyAttending.where(:companyvisit_id => params[:cvisit])
+      @students = Student.find(@cv.all.map{ |cv| cv.student_id})
+    end
+  end
+
   def export
   	if params[:student_ids]
        #@students = Student.where(:batch => params[:list][:batch] , :dept => params[:list][:dept])
