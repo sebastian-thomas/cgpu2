@@ -2,34 +2,41 @@
 
 <table>
   <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>      
+    <tr>     
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <td>Address</td>
       <th><%= model_class.human_attribute_name(:course) %></th>
       <th><%= model_class.human_attribute_name(:dept) %></th>
       <th><%= model_class.human_attribute_name(:batch) %></th>
       <th><%= model_class.human_attribute_name(:gender) %></th>
       <th><%= model_class.human_attribute_name(:mobile) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
+      <th>X</th>
+      <th>XII</th>
       <th><%= model_class.human_attribute_name(:ug_cgpa) %></th>
-      <th>Pg Cgpa </th>      
+      <th>Pg Cgpa </th>  
+      <th>Backlogs Pending</th>    
     </tr>
   </thead>
   <tbody>
   <% if @students %>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.id %></td>
        
         <td><%= student.name %></td>
+        <td><%= student.paddr %></td>
         <td><%= student.course %></td>
         <td><%= student.dept %></td>
         <td><%= student.batch %></td>
         <td><%= student.gender %></td>
         <td><%= student.mobile %></td>
         <td><%= student.email %></td>
+        <td><%= student.ssc_aggr %></td>
+        <td><%= student.hsc_aggr %></td>
         <td><%= student.ug_cgpa %></td>
          <td><%= student.pg_cgpu %></td>
+         <td><%= student.ug_b_pending %></td>
+         
       </tr>
     <% end %>
   <% end %>

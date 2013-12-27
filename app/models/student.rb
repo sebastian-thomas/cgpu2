@@ -11,7 +11,9 @@ class Student < ActiveRecord::Base
 
     COURSE = ['B.Tech','M.Tech','B.Arch','MCA']
 	DEPT = ['Computer Science','Chemical','Civil','Electrical' ,'Electronics','Mechanical','Production','Architecture','MCA']
-	BATCH = ['2010-14','2011-15','2012-16','2013-17', '2012-14','2013-15','2014-16']
+	#BATCH = ['2010-14','2011-15','2012-16','2013-17', '2012-14','2013-15','2014-16']
+	BATCH = ['2014','2015','2016','2017','2018']
+
 
 
 	def self.to_csv(options = {})

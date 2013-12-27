@@ -19,14 +19,20 @@
          <% if f == 1 %>
             <div class = "align-right"><small>You have applied for this drive</small></div>
          <% else %>
-            <span id = 'attend<%=c.id %>' class = "align-right">
-               <% if current_user.role? :student %>
-                    <%= form_tag('/home/attend',method: "post") do %>
-                        <%= hidden_field_tag 'visitid', c.id %>
-                        <%= submit_tag "Appy for Drive" %>
-                    <% end %>
-               <% end %>
-            </span>
+
+           <% if @details == 1 %>
+                <span id = 'attend<%=c.id %>' class = "align-right">
+                  <% if current_user.role? :student %>
+                       <%= form_tag('/home/attend',method: "post") do %>
+                           <%= hidden_field_tag 'visitid', c.id %>
+                           <%= submit_tag "Appy for Drive" %>
+                       <% end %>
+                  <% end %>
+               </span>
+           <% else %>
+               <br><small>Please fill up your <a href = "/students"> details</a> to attend the drive.</small>
+           <% end %>
+            
          <% end %>
    </legend>
    <div class = "container">

@@ -15,13 +15,16 @@ class User < ActiveRecord::Base
 
   # Default role is "Registered"
   def setup_role 
-    if self.role_ids.empty?     
-      self.role_ids = Role.where(:name => "waiting").first.id
+    if self.role_ids.empty?  
+      #rid = RegProfile.where(:name => "default").first.id  
+      #self.role_ids = Role.where(:name => "waiting").first.id
+      self.role_ids = RegProfile.where(:name => "default").first.role_id 
     end
   end
 
 
   COURSE = ['NA','B.Tech','M.Tech','B.Arch','MCA']
   DEPT = ['NA','Computer Science','Chemical','Civil','Electrical' ,'Electronics','Mechanical','Production','Architecture','MCA']
-  BATCH = ['NA','2010-14','2011-15','2012-16','2013-17']
+  #BATCH = ['NA','2010-14','2011-15','2012-16','2013-17']
+  BATCH = ['NA','2014','2015','2016','2017','2018']
 end
